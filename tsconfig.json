@@ -25,6 +25,7 @@
       "@constants/*": ["src/common/constants/*"],
       "@decorators/*": ["src/common/decorators/*"],
       "@dtos/*": ["src/common/dtos/*"],
+      "@interceptors/*": ["src/common/interceptors/*"],
       "@models/*": ["src/models/*"]
     }
   }
