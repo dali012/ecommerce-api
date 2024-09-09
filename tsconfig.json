@@ -20,7 +20,10 @@
     "paths": {
       "@config/*": ["src/common/config/*"],
       "@utils/*": ["src/common/utils/*"],
-      "@prisma/*": ["src/common/prisma/*"]
+      "@prisma/*": ["src/common/prisma/*"],
+      "@guards/*": ["src/common/guards/*"],
+      "@constants/*": ["src/common/constants/*"],
+      "@decorators/*": ["src/common/decorators/*"]
     }
   }
 }

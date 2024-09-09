@@ -1,7 +1,9 @@
 import appConfig from '@config/app.config';
+import { ApiKeyGuard } from '@guards/apiKey.guard';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { APP_GUARD } from '@nestjs/core';
 import { GraphQLModule } from '@nestjs/graphql';
 import { PrismaModule } from '@prisma/prisma.module';
 import { join } from 'path';
@@ -21,7 +23,11 @@ import { join } from 'path';
     }),
     PrismaModule,
   ],
-  controllers: [],
-  providers: [],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: ApiKeyGuard,
+    },
+  ],
 })
 export class AppModule {}

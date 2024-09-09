@@ -94,7 +94,10 @@
     "moduleNameMapper": {
       "@config/(.*)$": "<rootDir>/common/config/$1",
       "@utils/(.*)$": "<rootDir>/common/utils/$1",
-      "@prisma/(.*)$": "<rootDir>/common/prisma/$1"
+      "@prisma/(.*)$": "<rootDir>/common/prisma/$1",
+      "@guards/(.*)$": "<rootDir>/common/guards/$1",
+      "@constants/(.*)$": "<rootDir>/common/constants/$1",
+      "@decorators/(.*)$": "<rootDir>/common/decorators/$1"
     },
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
