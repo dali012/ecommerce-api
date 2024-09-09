@@ -30,10 +30,7 @@ export class HealthController {
     return this.health.check([
       () =>
         this.http.pingCheck('Ecommerce API Docs', 'http://localhost:1337/docs'),
-      () =>
-        this.db.pingCheck('Prisma Database', this.prisma, {
-          timeout: 10000,
-        }),
+      () => this.db.pingCheck('prisma', this.prisma),
     ]);
   }
 }
