@@ -12,7 +12,7 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import setupSwagger from '@utils/setup-swagger';
 import validationOptions from '@utils/validation-options';
 import { useContainer } from 'class-validator';
-import compression from 'compression';
+import * as compression from 'compression';
 import helmet from 'helmet';
 import { AppModule } from './app.module';
 
