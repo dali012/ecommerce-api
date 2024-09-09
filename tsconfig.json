@@ -19,7 +19,8 @@
     "noFallthroughCasesInSwitch": false,
     "paths": {
       "@config/*": ["src/common/config/*"],
-      "@utils/*": ["src/common/utils/*"]
+      "@utils/*": ["src/common/utils/*"],
+      "@prisma/*": ["src/common/prisma/*"]
     }
   }
 }

@@ -3,6 +3,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
+import { PrismaModule } from '@prisma/prisma.module';
 import { join } from 'path';
 
 @Module({
@@ -18,6 +19,7 @@ import { join } from 'path';
       load: [appConfig],
       envFilePath: ['.env'],
     }),
+    PrismaModule,
   ],
   controllers: [],
   providers: [],

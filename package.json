@@ -84,7 +84,8 @@
     ],
     "moduleNameMapper": {
       "@config/(.*)$": "<rootDir>/common/config/$1",
-      "@utils/(.*)$": "<rootDir>/common/utils/$1"
+      "@utils/(.*)$": "<rootDir>/common/utils/$1",
+      "@prisma/(.*)$": "<rootDir>/common/prisma/$1"
     },
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
