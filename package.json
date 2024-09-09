@@ -97,7 +97,9 @@
       "@prisma/(.*)$": "<rootDir>/common/prisma/$1",
       "@guards/(.*)$": "<rootDir>/common/guards/$1",
       "@constants/(.*)$": "<rootDir>/common/constants/$1",
-      "@decorators/(.*)$": "<rootDir>/common/decorators/$1"
+      "@decorators/(.*)$": "<rootDir>/common/decorators/$1",
+      "@dtos/(.*)$": "<rootDir>/common/dtos/$1",
+      "@models/(.*)$": "<rootDir>/models/$1"
     },
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"

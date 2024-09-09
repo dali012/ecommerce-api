@@ -23,7 +23,9 @@
       "@prisma/*": ["src/common/prisma/*"],
       "@guards/*": ["src/common/guards/*"],
       "@constants/*": ["src/common/constants/*"],
-      "@decorators/*": ["src/common/decorators/*"]
+      "@decorators/*": ["src/common/decorators/*"],
+      "@dtos/*": ["src/common/dtos/*"],
+      "@models/*": ["src/models/*"]
     }
   }
 }

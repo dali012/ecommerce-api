@@ -1,5 +1,6 @@
 import appConfig from '@config/app.config';
 import { ApiKeyGuard } from '@guards/apiKey.guard';
+import { ProductsModule } from '@models/products/products.module';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
@@ -22,6 +23,7 @@ import { join } from 'path';
       envFilePath: ['.env'],
     }),
     PrismaModule,
+    ProductsModule,
   ],
   providers: [
     {
