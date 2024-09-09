@@ -1,73 +1,188 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# E-Commerce API - NestJS, GraphQL, Supabase, Prisma
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This is an e-commerce API built using NestJS with GraphQL as the API interface, Supabase for database and file storage, and Prisma as the ORM. The API provides features for managing products, categories, inventory, and orders, with complete CRUD functionality.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Features
 
-## Description
+- **Product Management**
+  - Product Creation
+  - Product Listing
+  - Product Details
+  - Product Update/Delete
+- **Category Management**
+  - Create, list, update, and delete categories for products.
+- **Inventory Management**
+  - Manage stock and availability of products.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+---
 
-## Installation
+## Tech Stack
+
+- **Backend Framework**: [NestJS](https://nestjs.com/)
+- **API Interface**: [GraphQL](https://graphql.org/)
+- **Database**: [Supabase](https://supabase.com/) (PostgreSQL) with [Prisma](https://www.prisma.io/) as ORM
+- **Storage**: Supabase Storage (for product images and files)
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v16+)
+- Supabase account with database and storage setup
+- PostgreSQL database URL
+- `@nestjs/graphql` and `@nestjs/apollo` for GraphQL
+- `@prisma/client` for database management
+- `@nestjs/config` for environment variables
+- `supabase-js` for interacting with Supabase Storage
+
+### Installation
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/dali012/ecommerce-server
+   cd ecommerce-server
+   ```
+
+2. **Install dependencies**:
+
+   ```bash
+   pnpm install
+   ```
+
+3. **Setup Prisma**:
+
+   - Create a `.env` file at the root of your project and configure the following environment variables:
+
+     ```bash
+     NODE_ENV=development
+     APP_PORT=1337
+     API_PREFIX=api
+     API_KEY="your api key"
+     DATABASE_URL="your database url"
+     DIRECT_URL="your database url"
+     JWT_SECRET="your jwt secret"
+     ```
+
+   - Generate Prisma Client:
+
+     ```bash
+     npx prisma generate
+     ```
+
+   - Apply migrations to set up the database schema:
+
+     ```bash
+     npx prisma db push
+     ```
+
+4. **Supabase Storage**:
+
+   Supabase Storage is used to handle product images and other related files. Make sure your Supabase project is configured with the necessary storage bucket.
+
+5. **Run the development server**:
+
+   ```bash
+   pnpm dev
+   ```
+
+   The API will be available at `http://localhost:1337/graphql`.
+
+---
+
+## API Overview
+
+### 1. **Product Management**
+
+- **Create Product**: Create a new product with related details (name, description, price, stock, etc.).
+- **List Products**: Retrieve a paginated list of all products.
+- **Product Details**: Fetch detailed information about a specific product, including categories, inventory, and images.
+- **Update/Delete Product**: Update the details of an existing product or delete a product.
+
+### 2. **Category Management**
+
+- **Create Category**: Create a new product category.
+- **List Categories**: Retrieve a list of all categories.
+- **Update/Delete Category**: Update or delete an existing category.
+
+### 3. **Inventory Management**
+
+- **Manage Stock**: Update the stock levels for products.
+
+---
+
+## GraphQL Schema
+
+You can explore and test the GraphQL schema using tools like [GraphQL Playground](https://www.apollographql.com/docs/apollo-server/testing/graphql-playground/).
+
+### Sample Queries
+
+- **Product List Query**:
+
+  ```graphql
+  query {
+    products {
+      id
+      name
+      price
+      stock
+    }
+  }
+  ```
+
+- **Create Product Mutation**:
+
+  ```graphql
+  mutation {
+    createProduct(
+      data: {
+        name: "New Product"
+        description: "A cool product"
+        price: 19.99
+        stock: 100
+        categoryId: "some-category-id"
+      }
+    ) {
+      id
+      name
+    }
+  }
+  ```
+
+### Sample Mutations
+
+- **Create Category**:
+
+  ```graphql
+  mutation {
+    createCategory(data: { name: "Electronics" }) {
+      id
+      name
+    }
+  }
+  ```
+
+---
+
+## Running the Project
+
+### Development
 
 ```bash
-$ pnpm install
+pnpm dev
 ```
 
-## Running the app
+### Production
 
 ```bash
-# development
-$ pnpm run start
-
-# watch mode
-$ pnpm run start:dev
-
-# production mode
-$ pnpm run start:prod
+pnpm build
+npm start:prod
 ```
 
-## Test
-
-```bash
-# unit tests
-$ pnpm run test
-
-# e2e tests
-$ pnpm run test:e2e
-
-# test coverage
-$ pnpm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+---
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+This project is licensed under the MIT License.
