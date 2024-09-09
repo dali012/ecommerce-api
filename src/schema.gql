@@ -1,0 +1,145 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Product {
+  id: String!
+  name: String!
+  description: String!
+  price: Float!
+  sku: String!
+  stock: Float!
+  categoryId: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  products(distinct: [ProductScalarFieldEnum!], where: ProductWhereInput, orderBy: [ProductOrderByWithRelationInput!], cursor: ProductWhereUniqueInput, take: Float, skip: Float): [Product!]!
+  product(where: ProductWhereUniqueInput!): Product!
+}
+
+enum ProductScalarFieldEnum {
+  id
+  name
+  description
+  price
+  sku
+  stock
+  categoryId
+  createdAt
+  updatedAt
+}
+
+input ProductWhereInput {
+  id: StringFilter
+  name: StringFilter
+  description: StringFilter
+  price: FloatFilter
+  sku: StringFilter
+  stock: IntFilter
+  categoryId: StringFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+  AND: [ProductWhereInput!]
+  OR: [ProductWhereInput!]
+  NOT: [ProductWhereInput!]
+}
+
+input StringFilter {
+  mode: QueryMode
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: String
+}
+
+enum QueryMode {
+  default
+  insensitive
+}
+
+input FloatFilter {
+  equals: Float
+  lt: Float
+  lte: Float
+  gt: Float
+  gte: Float
+  not: Float
+}
+
+input IntFilter {
+  equals: Float
+  lt: Float
+  lte: Float
+  gt: Float
+  gte: Float
+}
+
+input DateTimeFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+}
+
+input ProductOrderByWithRelationInput {
+  id: SortOrder
+  name: SortOrder
+  description: SortOrder
+  price: SortOrder
+  sku: SortOrder
+  stock: SortOrder
+  categoryId: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+enum SortOrder {
+  asc
+  desc
+}
+
+input ProductWhereUniqueInput {
+  id: String!
+}
+
+type Mutation {
+  createProduct(createProductInput: CreateProductInput!): Product!
+  updateProduct(updateProductInput: UpdateProductInput!): Product!
+  removeProduct(where: ProductWhereUniqueInput!): Product!
+}
+
+input CreateProductInput {
+  name: String!
+  description: String!
+  price: Float!
+  sku: String!
+  stock: Float!
+  categoryId: String!
+}
+
+input UpdateProductInput {
+  name: String
+  description: String
+  price: Float
+  sku: String
+  stock: Float
+  categoryId: String
+  id: String!
+}
