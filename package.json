@@ -26,7 +26,10 @@
     "prepare": "husky install",
     "migrate:reset": "prisma migrate reset --force --skip-seed",
     "seed": "ts-node prisma/seed.ts",
-    "db:reset": "pnpm migrate:reset && pnpm prisma db push && pnpm seed"
+    "db:reset": "pnpm migrate:reset && pnpm prisma db push && pnpm seed",
+    "entity:gql": "npx nestjs-prisma-codegen --graphql",
+    "entity:rest": "npx nestjs-prisma-codegen --rest",
+    "entity:complete": "npx nestjs-prisma-codegen --complete"
   },
   "dependencies": {
     "@apollo/server": "^4.11.0",
