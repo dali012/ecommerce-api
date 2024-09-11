@@ -2,6 +2,8 @@ import appConfig from '@config/app.config';
 import { ApiKeyGuard } from '@guards/apiKey.guard';
 import { HealthModule } from '@health/health.module';
 import { MetricsModule } from '@metrics/metrics.module';
+import fileConfig from '@models/files/config/file.config';
+import { FilesModule } from '@models/files/files.module';
 import { ProductsModule } from '@models/products/products.module';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { MiddlewareConsumer, Module } from '@nestjs/common';
@@ -27,7 +29,7 @@ import { HomeModule } from './home/home.module';
     }),
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [appConfig],
+      load: [appConfig, fileConfig],
       envFilePath: ['.env'],
     }),
     PrismaModule,
@@ -35,6 +37,7 @@ import { HomeModule } from './home/home.module';
     HealthModule,
     MetricsModule,
     HomeModule,
+    FilesModule,
   ],
   providers: [
     {
